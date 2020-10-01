@@ -24,7 +24,7 @@ all: clean
 
 
 	echo "Building: $(OUTPUT)"
-	wget --output-document=shutter.tar.gz --continue https://launchpad.net/shutter/0.9x/0.94.3/+download/shutter-0.94.3.tar.gz
+	wget --output-document=shutter.tar.gz --continue https://launchpad.net/shutter/0.9x/0.94.2/+download/shutter-0.94.2.tar.gz
 	tar -zxf shutter.tar.gz --directory ./build
 
 	cp -r ./build/shutter*/* ./AppDir/application
@@ -85,6 +85,31 @@ all: clean
 	rpm2cpio build.rpm | cpio -idmv
 
 	wget --output-document=build.rpm https://li.nux.ro/download/nux/dextop/el7/x86_64/perl-Gnome2-1.045-1.el7.nux.x86_64.rpm
+	rpm2cpio build.rpm | cpio -idmv
+
+	wget --output-document=build.rpm https://li.nux.ro/download/nux/dextop/el7/x86_64/gnome-web-photo-0.10.5-5.el7.nux.x86_64.rpm
+	rpm2cpio build.rpm | cpio -idmv
+
+	wget --output-document=build.rpm http://mirror.centos.org/centos/7/os/x86_64/Packages/libappindicator-12.10.0-13.el7.x86_64.rpm
+	rpm2cpio build.rpm | cpio -idmv
+
+	wget --output-document=build.rpm http://mirror.centos.org/centos/7/os/x86_64/Packages/libcanberra-gtk2-0.30-9.el7.x86_64.rpm
+	rpm2cpio build.rpm | cpio -idmv
+
+	wget --output-document=build.rpm http://mirror.centos.org/centos/7/os/x86_64/Packages/libcanberra-0.30-9.el7.x86_64.rpm
+	rpm2cpio build.rpm | cpio -idmv
+
+
+
+
+
+	wget --output-document=build.rpm https://li.nux.ro/download/nux/dextop/el7/x86_64/perl-Gtk2-AppIndicator-0.15-9.el7.nux.x86_64.rpm
+	rpm2cpio build.rpm | cpio -idmv
+
+	wget --output-document=build.rpm https://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/p/perl-Image-ExifTool-12.00-1.el7.noarch.rpm
+	rpm2cpio build.rpm | cpio -idmv
+
+	wget --output-document=build.rpm https://li.nux.ro/download/nux/dextop/el7/x86_64/perl-Goo-Canvas-0.06-20.el7.nux.x86_64.rpm
 	rpm2cpio build.rpm | cpio -idmv
 
 	wget --output-document=build.rpm https://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/p/perl-Gtk2-1.2495-1.el7.x86_64.rpm
@@ -195,6 +220,56 @@ all: clean
 	wget --output-document=build.rpm http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-Time-Local-1.2300-2.el7.noarch.rpm
 	rpm2cpio build.rpm | cpio -idmv
 
+	wget --output-document=build.rpm https://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/p/perl-WWW-Mechanize-1.72-4.el7.noarch.rpm
+	rpm2cpio build.rpm | cpio -idmv
+
+	wget --output-document=build.rpm https://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/p/perl-JSON-MaybeXS-1.003005-1.el7.noarch.rpm
+	rpm2cpio build.rpm | cpio -idmv
+
+	wget --output-document=build.rpm http://mirror.centos.org/centos/7/os/x86_64/Packages/ImageMagick-perl-6.9.10.68-3.el7.x86_64.rpm
+	rpm2cpio build.rpm | cpio -idmv
+
+	wget --output-document=build.rpm http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-HTML-Parser-3.71-4.el7.x86_64.rpm
+	rpm2cpio build.rpm | cpio -idmv
+
+	wget --output-document=build.rpm http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-JSON-PP-2.27202-2.el7.noarch.rpm
+	rpm2cpio build.rpm | cpio -idmv
+
+	wget --output-document=build.rpm https://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/p/perl-Cpanel-JSON-XS-3.0104-1.el7.x86_64.rpm
+	rpm2cpio build.rpm | cpio -idmv
+
+	wget --output-document=build.rpm http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-parent-0.225-244.el7.noarch.rpm
+	rpm2cpio build.rpm | cpio -idmv
+
+	wget --output-document=build.rpm https://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/p/perl-Net-OAuth-0.28-2.el7.noarch.rpm
+	rpm2cpio build.rpm | cpio -idmv
+
+	wget --output-document=build.rpm https://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/p/perl-Path-Class-0.33-1.el7.noarch.rpm
+	rpm2cpio build.rpm | cpio -idmv
+
+	wget --output-document=build.rpm http://mirror.centos.org/centos/7/os/x86_64/Packages/perl-Perl-OSType-1.003-3.el7.noarch.rpm
+	rpm2cpio build.rpm | cpio -idmv
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	cp -r ./usr/bin ./AppDir/perl
 	cp -r ./usr/share ./AppDir/perl
@@ -206,7 +281,7 @@ all: clean
 	chmod +x AppDir/AppRun
 
 	export ARCH=x86_64 && bin/appimagetool.AppImage AppDir $(OUTPUT)
-	make clean
+	#make clean
 	
 
 clean:
